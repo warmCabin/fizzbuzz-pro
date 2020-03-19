@@ -12,6 +12,6 @@ public class FizzBuzzApplication {
     FizzBuzzConfiguration.configure();
 
     Generator gen = new StandardFizzBuzzGenerator();
-    gen.generate(new Range(0, 100));
+    gen.generate(Range.of(0, 100));
   }
 }

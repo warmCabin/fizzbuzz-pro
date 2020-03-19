@@ -3,6 +3,7 @@ package buzz.fizz.generator;
 import buzz.fizz.checker.AndChecker;
 import buzz.fizz.checker.Checker;
 import buzz.fizz.checker.IntegerDivisibilityChecker;
+import buzz.fizz.util.CheckerUtils;
 import buzz.fizz.util.Range;
 import java.util.Arrays;
 import java.util.List;
@@ -15,9 +16,21 @@ public class StandardFizzBuzzGenerator implements Generator {
   private final List<Checker> checkers;
 
   public StandardFizzBuzzGenerator() {
-    final Checker fizzChecker = new IntegerDivisibilityChecker(3, "Fizz");
-    final Checker buzzChecker = new IntegerDivisibilityChecker(5, "Buzz");
-    final Checker fizzBuzzChecker = new AndChecker(fizzChecker, buzzChecker);
+
+    final Checker fizzChecker = IntegerDivisibilityChecker.builder()
+        .divisor(3)
+        .replacement("Fizz")
+        .build();
+
+    final Checker buzzChecker = IntegerDivisibilityChecker.builder()
+        .divisor(5)
+        .replacement("Buzz")
+        .build();
+
+    final Checker fizzBuzzChecker = CheckerUtils.and(
+        fizzChecker,
+        buzzChecker
+    );
 
     checkers = Arrays.asList(fizzBuzzChecker, fizzChecker, buzzChecker);
   }

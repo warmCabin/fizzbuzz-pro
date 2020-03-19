@@ -20,6 +20,14 @@ public class Range implements Iterable<Integer> {
     this(start, stop, 1);
   }
 
+  public static Range of(final int start, final int stop, final int step) {
+    return new Range(start, stop, step);
+  }
+
+  public static Range of(final int start, final int stop) {
+    return new Range(start, stop);
+  }
+
   private void validate() {
     if (Integer.compare(stop, start) != Integer.signum(step)) {
       throw new IllegalArgumentException("Range should step from start to stop.");
