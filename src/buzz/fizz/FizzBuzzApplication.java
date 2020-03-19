@@ -3,6 +3,7 @@ package buzz.fizz;
 import buzz.fizz.config.FizzBuzzConfiguration;
 import buzz.fizz.generator.Generator;
 import buzz.fizz.generator.StandardFizzBuzzGenerator;
+import buzz.fizz.util.Range;
 
 public class FizzBuzzApplication {
 
@@ -11,6 +12,6 @@ public class FizzBuzzApplication {
     FizzBuzzConfiguration.configure();
 
     Generator gen = new StandardFizzBuzzGenerator();
-    gen.generate(1, 100);
+    gen.generate(new Range(0, 100));
   }
 }
