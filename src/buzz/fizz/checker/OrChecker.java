@@ -34,8 +34,8 @@ public class OrChecker implements Checker {
   }
 
   @Override
-  public boolean isValid(int n) {
-    return constituents.stream().anyMatch(checker -> checker.isValid(n));
+  public boolean check(int n) {
+    return constituents.stream().anyMatch(checker -> checker.check(n));
   }
 
   @Override

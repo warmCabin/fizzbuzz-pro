@@ -27,7 +27,7 @@ public class StandardFizzBuzzGenerator implements Generator {
 
     range.forEach(i ->
         log.info(checkers.stream()
-            .filter(checker -> checker.isValid(i))
+            .filter(checker -> checker.check(i))
             .findFirst()
             .map(Checker::getReplacement)
             .orElse(Integer.toString(i))

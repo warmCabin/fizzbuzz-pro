@@ -34,8 +34,8 @@ public class AndChecker implements Checker {
   }
 
   @Override
-  public boolean isValid(int n) {
-    return constituents.stream().allMatch(checker -> checker.isValid(n));
+  public boolean check(int n) {
+    return constituents.stream().allMatch(checker -> checker.check(n));
   }
 
   @Override
