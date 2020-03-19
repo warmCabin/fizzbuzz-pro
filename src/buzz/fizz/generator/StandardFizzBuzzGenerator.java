@@ -15,7 +15,7 @@ public class StandardFizzBuzzGenerator implements Generator {
     Checker buzzChecker = new IntegerDivisibilityChecker(5, "Buzz");
     Checker fizzBuzzChecker = new AndChecker(fizzChecker, buzzChecker);
 
-    for(int i = 1; i <= 100; i++) {
+    for(int i = lower; i <= upper; i++) {
       if (fizzBuzzChecker.isValid(i)) {
         log.info(fizzBuzzChecker.getReplacement());
       } else if (fizzChecker.isValid(i)) {
